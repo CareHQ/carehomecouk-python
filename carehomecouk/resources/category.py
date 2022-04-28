@@ -4,8 +4,8 @@ __all__ = ('Category')
 
 class Category:
     """
-    Leads come in different categories, each category of enquirt has it's own
-    set of specific fields.
+    Enquiries come in different categories, each category of enquiry has it's
+    own set of specific fields.
     """
 
     def __init__(self, id, name):
