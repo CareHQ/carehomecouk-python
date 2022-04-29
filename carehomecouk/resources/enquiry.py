@@ -130,10 +130,10 @@ class Enquiry:
         params = {}
 
         if date_time_from is not None:
-            params['dateFrom'] = date_time_from.strftime('%Y-%m-%dT%H:%M')
+            params['dateFrom'] = date_time_from.strftime('%Y-%m-%dT%H:%M:%S')
 
         if date_time_to is not None:
-            params['dateTo'] = date_time_to.strftime('%Y-%m-%dT%H:%M')
+            params['dateTo'] = date_time_to.strftime('%Y-%m-%dT%H:%M:%S')
 
         if exclude_anonymised is not None:
             params['excludeAnonymised'] \

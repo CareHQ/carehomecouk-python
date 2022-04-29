@@ -35,15 +35,13 @@ class APIClient:
             timeout=self._timeout
         )
 
-        print(r.request.url)
-
         # Handle a successful response
         if r.status_code == 200:
             return r.json()
 
         # Raise an error related to the response
         try:
-            error_message = r.json().get('message')
+            error_message = r.json().get('error')[0]
 
         except ValueError:
             error_message = 'Unknown error'
