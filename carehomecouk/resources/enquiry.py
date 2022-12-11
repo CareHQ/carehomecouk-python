@@ -83,17 +83,25 @@ class Enquiry:
         booking_date = None
         if category_specific_data.get('bookingDate'):
             parts = category_specific_data['bookingDate'].split(' ')
-            booking_date = datetime.datetime.strptime(
-                f'{parts[1][:2]} {parts[2]} {parts[3]}',
-                '%d %B %Y'
-            ).date()
+
+            try:
+                booking_date = datetime.datetime.strptime(
+                    f'{parts[1][:2]} {parts[2]} {parts[3]}',
+                    '%d %B %Y'
+                ).date()
+            except ValueError:
+                pass
 
         booking_time = None
         if category_specific_data.get('bookingTime'):
-            booking_date = datetime.datetime.strptime(
-                category_specific_data['bookingTime'],
-                '%H:%M %p'
-            ).time()
+
+            try:
+                booking_date = datetime.datetime.strptime(
+                    category_specific_data['bookingTime'],
+                    '%H:%M %p'
+                ).time()
+            except ValueError:
+                pass
 
         return cls(
             obj['id'],
