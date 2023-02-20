@@ -89,7 +89,7 @@ class Enquiry:
                     f'{parts[1][:2]} {parts[2]} {parts[3]}',
                     '%d %B %Y'
                 ).date()
-            except ValueError:
+            except (IndexError, ValueError):
                 pass
 
         booking_time = None
@@ -100,7 +100,7 @@ class Enquiry:
                     category_specific_data['bookingTime'],
                     '%H:%M %p'
                 ).time()
-            except ValueError:
+            except (IndexError, ValueError):
                 pass
 
         return cls(
